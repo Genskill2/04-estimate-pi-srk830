@@ -3,7 +3,16 @@
 #include <stdio.h>
 #include <math.h>
 
-float mc_pi(int);
+float mc_pi(int n) {
+  int count = 0;
+  for (int i = 0; i < n; i++) {
+    float x = frandom();
+    float y = frandom();
+    if ((x*x + y*y) > 1)  continue;
+    count++;
+  }
+  return (4.0*count)/n;
+}
 
 float frandom() {
   long int q = random();
